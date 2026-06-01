@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bazaar List 🛒</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <span class="logo">🛒 Bazaar List</span>
+      <span id="status-dot" class="dot offline" title="Firebase connection status"></span>
+    </div>
+  </header>
+
+  <nav class="tab-bar">
+    <button class="tab active" data-tab="add">➕ Add Items</button>
+    <button class="tab" data-tab="shop">🧺 Shop</button>
+    <button class="tab" data-tab="notes">📝 Notes</button>
+  </nav>
+
+  <!-- ADD ITEMS TAB -->
+  <section id="tab-add" class="tab-content active">
+    <div class="card">
+      <h2>Add to List</h2>
+      <div class="form-row">
+        <input id="item-name" type="text" placeholder="Item name (e.g. Rice)" autocomplete="off" />
+      </div>
+      <div class="form-row two-col">
+        <input id="item-qty" type="number" placeholder="Qty (optional)" min="0" step="any" />
+        <select id="item-unit">
+          <option value="">— unit —</option>
+          <option value="kg">kg</option>
+          <option value="g">g</option>
+          <option value="litre">litre</option>
+          <option value="ml">ml</option>
+          <option value="piece">piece(s)</option>
+          <option value="dozen">dozen</option>
+          <option value="pack">pack</option>
+          <option value="bottle">bottle</option>
+          <option value="box">box</option>
+        </select>
+      </div>
+      <button id="btn-add" class="btn-primary">Add Item</button>
+    </div>
+
+    <div class="card">
+      <h2>Current List <span id="item-count" class="badge">0</span></h2>
+      <ul id="preview-list" class="item-list"></ul>
+      <button id="btn-clear-done" class="btn-secondary">🗑 Remove Bought Items</button>
+    </div>
+  </section>
+
+  <!-- SHOP TAB -->
+  <section id="tab-shop" class="tab-content">
+    <div class="card">
+      <h2>Shopping Checklist</h2>
+      <p class="hint">Tap an item to mark it as bought ✅</p>
+      <ul id="shop-list" class="item-list"></ul>
+    </div>
+  </section>
+
+  <!-- NOTES TAB -->
+  <section id="tab-notes" class="tab-content">
+    <div class="card">
+      <h2>Leave a Note</h2>
+      <p class="hint">Write anything for the person going to the market.</p>
+      <textarea id="note-input" rows="4" placeholder="e.g. Please get the desi variety of tomatoes, not hybrid."></textarea>
+      <button id="btn-save-note" class="btn-primary">Save Note</button>
+    </div>
+    <div class="card">
+      <h2>Notes Board 📌</h2>
+      <ul id="notes-list" class="notes-list"></ul>
+    </div>
+  </section>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
