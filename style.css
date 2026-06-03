@@ -35,10 +35,11 @@ header {
 .header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 480px; margin: auto; }
 .logo { font-size: 1.25rem; font-weight: 800; letter-spacing: -.3px; }
 
-/* CONNECTION DOT */
-.dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
-.dot.online  { background: #fff; box-shadow: 0 0 0 3px rgba(255,255,255,.4); }
-.dot.offline { background: rgba(255,255,255,.35); }
+.creator {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  font-weight: 500;
+}
 
 /* TABS */
 .tab-bar {
